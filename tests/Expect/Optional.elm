@@ -2,16 +2,17 @@ module Expect.Optional exposing (dictField, emptyDict, emptyField, false, field,
 
 import Dict exposing (Dict)
 import Expect exposing (Expectation)
+import Expect.Maybe
 
 
 field : (a -> Maybe b) -> a -> Expectation
 field getValue object =
-    getValue object |> isJust |> Expect.true "Field does not exist or is empty"
+    getValue object |> Expect.Maybe.isJust |> Expect.true "Field does not exist or is empty"
 
 
 emptyField : (a -> Maybe b) -> a -> Expectation
 emptyField getValue object =
-    getValue object |> isJust |> Expect.false "Field should not exist or be empty"
+    getValue object |> Expect.Maybe.isJust |> Expect.false "Field should not exist or be empty"
 
 
 dictField : (a -> Dict k v) -> a -> Expectation
@@ -32,13 +33,3 @@ true getValue object =
 false : (a -> Bool) -> a -> Expectation
 false getValue object =
     getValue object |> Expect.false "Field should be false"
-
-
-isJust : Maybe a -> Bool
-isJust m =
-    case m of
-        Just _ ->
-            True
-
-        Nothing ->
-            False
