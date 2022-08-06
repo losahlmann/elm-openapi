@@ -9,6 +9,10 @@ import OpenApi.Schema as Schema exposing (Schema)
 
 
 
+{- Media Type Object
+   as in v3.1.0 of the OpenAPI Specification
+   https://spec.openapis.org/oas/v3.1.0.html#media-type-object
+-}
 -- TODO: example/s
 
 

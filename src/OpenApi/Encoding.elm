@@ -6,6 +6,13 @@ import Json.Decode.Pipeline as JsonField
 import OpenApi.Header as Header exposing (Header)
 
 
+
+{- Encoding Object
+   as in v3.1.0 of the OpenAPI Specification
+   https://spec.openapis.org/oas/v3.1.0.html#encoding-object
+-}
+
+
 type alias Encoding =
     { contentType : Maybe String
     , headers : Dict String Header
