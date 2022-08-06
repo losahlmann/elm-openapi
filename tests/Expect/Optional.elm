@@ -1,4 +1,4 @@
-module Expect.Optional exposing (dictField, emptyDict, emptyField, false, field, true)
+module Expect.Optional exposing (dictField, emptyDict, emptyField, false, field, listField, true)
 
 import Dict exposing (Dict)
 import Expect exposing (Expectation)
@@ -13,6 +13,11 @@ field getValue object =
 emptyField : (a -> Maybe b) -> a -> Expectation
 emptyField getValue object =
     getValue object |> Expect.Maybe.isJust |> Expect.false "Field should not exist or be empty"
+
+
+listField : (a -> List b) -> a -> Expectation
+listField getValue object =
+    getValue object |> List.isEmpty |> not |> Expect.true "List should not be empty"
 
 
 dictField : (a -> Dict k v) -> a -> Expectation
