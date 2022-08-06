@@ -1,0 +1,27 @@
+{
+  "name": "elm-openapi",
+  "version": "0.0.1",
+  "description": "An Elm library for parsing (decoding) OpenAPI JSON and YAML definition files.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "elm-tooling install",
+    "dev:parser": "elm make src/Main.elm --debug",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/losahlmann/elm-openapi.git"
+  },
+  "keywords": [
+    "OpenAPI"
+  ],
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/losahlmann/elm-openapi/issues"
+  },
+  "homepage": "https://github.com/losahlmann/elm-openapi#readme",
+  "devDependencies": {
+    "elm-tooling": "^1.8.0"
+  }
+}
