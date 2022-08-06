@@ -16,7 +16,7 @@ type alias Example =
     , description : Maybe String
 
     -- value and externalValue are mutually exclusive
-    , value : Maybe String
+    , value : Maybe Json.Value -- just keep JSON content, can be primitive type or object
     , externalValue : Maybe String
     }
 
@@ -26,5 +26,9 @@ jsonDecoder =
     Json.succeed Example
         |> JsonField.optional "summary" (Json.nullable Json.string) Nothing
         |> JsonField.optional "description" (Json.nullable Json.string) Nothing
-        |> JsonField.optional "value" (Json.nullable Json.string) Nothing
+        |> JsonField.optional "value" (Json.nullable Json.value) Nothing
         |> JsonField.optional "externalValue" (Json.nullable Json.string) Nothing
+
+
+
+-- TODO: tests (in spec YAML only)
