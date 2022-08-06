@@ -27,7 +27,7 @@ type alias Parameter =
     , explode : Bool
     , allowReserved : Bool
     , schema : Maybe Schema
-    , example : Maybe String
+    , example : Maybe Json.Value
     , examples : Dict String Example
     }
 
@@ -45,5 +45,5 @@ jsonDecoder =
         |> JsonField.optional "explode" Json.bool True
         |> JsonField.optional "allowReserved" Json.bool False
         |> JsonField.optional "schema" (Json.nullable Schema.jsonDecoder) Nothing
-        |> JsonField.optional "example" (Json.nullable Json.string) Nothing
+        |> JsonField.optional "example" (Json.nullable Json.value) Nothing
         |> JsonField.optional "examples" (Json.dict Example.jsonDecoder) Dict.empty
