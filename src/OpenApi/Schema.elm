@@ -5,9 +5,9 @@ import Json.Decode.Pipeline as JsonField
 
 
 type alias Schema =
-    {}
+    Json.Value
 
 
 jsonDecoder : Json.Decoder Schema
 jsonDecoder =
-    Json.succeed {}
+    Json.value
